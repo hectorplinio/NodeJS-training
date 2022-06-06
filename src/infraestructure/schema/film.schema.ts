@@ -1,5 +1,5 @@
-import { Schema, model } from "mongoose";
-import { Film } from "../../core/domain/film.model";
+import { Schema } from "mongoose";
+import { Film } from "../../core/domain/film";
 
 const filmSchema = new Schema<Film>({
     title: {
@@ -63,5 +63,4 @@ const filmSchema = new Schema<Film>({
         required: true,
     },
 });
-const filmModel = model<Film>("Film", filmSchema);
-export default filmModel;
+export default filmSchema;
