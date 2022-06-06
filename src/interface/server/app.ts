@@ -1,6 +1,5 @@
 import express, { Application } from "express";
 import filmController from "./controllers/filmController";
-// import filmRouter from "./routes/film.routes";
 import cors from "cors";
 export const createServer = (port: number) => {
     const app: Application = express();
@@ -13,7 +12,6 @@ export const createServer = (port: number) => {
     });
     app.get("/film", filmController);
     app.post("/film", filmController);
-    // app.use("/film", filmRouter());
     return {
         app: app,
         run: () => runServer(app, port),
