@@ -1,7 +1,6 @@
 import { Comment } from "./comments.model";
 
 export interface Film {
-    id: string;
     title: string;
     description: string;
     director: string;
