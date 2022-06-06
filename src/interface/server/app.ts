@@ -18,7 +18,7 @@ export const createServer = (port: number) => {
     };
 };
 
-export const runServer = (app: Application, port: number) => {
+export const runServer = (app, port: number) => {
     try {
         const server = app.listen(port, (): void => {
             console.log(`Connected successfully on port ${port}`);
