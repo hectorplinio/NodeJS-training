@@ -2,9 +2,9 @@
   "name": "nodejs-training",
   "version": "1.0.0",
   "description": "Create a new NodeJs repo for training with hexagonal architecture",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "ts-node src/index.ts",
     "lint": "eslint . --ext .ts",
     "lint:fix": "eslint . --ext .ts --fix",
     "prettier": "prettier --check .",

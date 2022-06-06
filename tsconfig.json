@@ -19,7 +19,8 @@
     "noUnusedParameters": true,
     "sourceMap": true,
     "strictNullChecks": false,
-    "target": "es6"
+    "target": "es6",
+    "lib": ["ES6"]
   },
-  "include": ["src/**/*"]
+  "include": ["src/**/*/*.ts", "src/index.ts"],
 }
