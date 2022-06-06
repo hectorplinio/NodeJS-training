@@ -2,29 +2,6 @@ version: "3.8"
 
 services:
   web:
-    image: teamdha/nodeserver:1.0
+    build: .
     ports:
       - "80:8080"
-    env_file:
-      - .env
-    environment:
-      NODE_ENV: production
-      POSTGRES_HOST: db
-    depends_on:
-      - "db"
-
-  db:
-    image: postgres:14.2-alpine
-    restart: always
-    ports:
-      - "5432:5432"
-    environment:
-      DATABASE_HOST: localhost
-      POSTGRES_USER: ${POSTGRES_USER}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-      POSTGRES_DB: ${POSTGRES_DB}
-    volumes:
-      - db-data:/foo
-
-volumes:
-  db-data:

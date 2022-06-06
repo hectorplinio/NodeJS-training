@@ -4,12 +4,12 @@
   "description": "Create a new NodeJs repo for training with hexagonal architecture",
   "main": "index.ts",
   "scripts": {
-    "start": "ts-node src/interface/server/index.ts",
+    "start": "ts-node src/index.ts",
     "lint": "eslint . --ext .ts",
     "lint:fix": "eslint . --ext .ts --fix",
     "prettier": "prettier --check .",
     "prettier:write": "npx prettier --write .",
-    "dev:server": "nodemon ./src/interface/server/index.ts --watch"
+    "dev:server": "nodemon ./src/index.ts --watch"
   },
   "repository": {
     "type": "git",
