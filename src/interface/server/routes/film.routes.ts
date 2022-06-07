@@ -7,7 +7,7 @@ const router: Router = express.Router();
 const filmRouter = (): Router => {
     router.get("/film", controllerWrapper(getAllFilmsController));
     router.post("/film", controllerWrapper(createFilmController));
-    router.put("/film", controllerWrapper(getFilmByIdController));
+    router.get("/film/?id", controllerWrapper(getFilmByIdController));
     return router;
 };
 export default filmRouter;
