@@ -1,5 +1,6 @@
+import { idType } from "./id.type";
 export interface Comment {
-    id: string;
+    id: idType;
     filmId: string;
     userId: string;
     text: string;
