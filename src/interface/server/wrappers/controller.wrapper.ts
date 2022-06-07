@@ -8,7 +8,7 @@ export const controllerWrapper = (
             await controller(req, res);
         } catch (error: unknown) {
             console.log(error);
-            return next(error);
+            next(error);
         }
     };
     return run;
