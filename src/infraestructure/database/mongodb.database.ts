@@ -1,8 +1,10 @@
 import Mongoose from "mongoose";
+import dotenv from "dotenv";
+dotenv.config();
 let database: Mongoose.Connection;
 export const mongodbConnect = () => {
     // add your own uri below
-    const uri = "mongodb://localhost:27017/AppFilms";
+    const uri = process.env.MONGODB_URI;
     if (database) {
         return;
     }

@@ -1,4 +1,4 @@
-FROM node:16.14
+FROM node:alpine
 
 WORKDIR /app
 
@@ -8,10 +8,4 @@ RUN npm install
 
 COPY . .
 
-COPY . /app
-
-ENV PORT=8080
-
-EXPOSE 8080
-
-CMD ["npm", "start"]
+CMD ["npm", "run","dev:server"]

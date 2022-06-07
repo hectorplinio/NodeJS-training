@@ -1,7 +1,23 @@
-version: "3.8"
-
+version: "3.7"
 services:
-  web:
+  mongo-express:
+    container_name: mongodb-training
+    restart: always
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./mongo-data:/data/db
+  app:
     build: .
     ports:
-      - "80:8080"
+      - "4000:3000"
+    environment:
+      PORT: 3000
+      MONGODB_URI: mongodb://mongo-express:27017
+      DB_NAME: mongo-training
+    depends_on:
+      - mongo-express
+    volumes:
+      - .:/app
+      - /app/node_modules
