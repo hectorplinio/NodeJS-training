@@ -12,7 +12,7 @@ const FilmORM = (): FilmRepository => {
                 return error.message;
             }
         },
-        getFilmById: async (id: string) => {
+        getFilmById: async (id: object) => {
             const film = await filmModel.findById(id);
             return film;
         },
