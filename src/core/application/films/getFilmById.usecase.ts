@@ -1,7 +1,6 @@
 import { idType } from "../../domain/id.type";
 import FilmRepository from "../../repositories/film.repository";
-const getFilmById = async (repository: FilmRepository, id: idType) => {
-    const films = await repository.getFilmById(id);
-    return films;
+const GetFilmById = async (repository: FilmRepository, id: idType) => {
+    return await repository.getFilmById(id);
 };
-export default getFilmById;
+export default GetFilmById;

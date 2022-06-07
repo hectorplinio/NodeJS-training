@@ -2,7 +2,7 @@ import { Comment } from "./comments";
 import { idType } from "./id.type";
 
 export interface Film {
-    _id?: idType;
+    id?: idType;
     title: string;
     description: string;
     director: string;
