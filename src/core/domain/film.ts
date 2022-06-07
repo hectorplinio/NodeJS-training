@@ -1,6 +1,7 @@
 import { Comment } from "./comments";
 
 export interface Film {
+    id?: number;
     title: string;
     description: string;
     director: string;

@@ -1,8 +1,8 @@
-import FilmORM from "../../../../infraestructure/adapters/films.repository";
 import { Film } from "../../../../core/domain/film";
+import { getAllFilms } from "../../../../core/application/films/index";
 const getAllFilmsController = async (_req, res) => {
     try {
-        const films: Array<Film> = await FilmORM().getAllFilms();
+        const films: Array<Film> = await getAllFilms();
         console.log(films);
         if (!films) {
             return res.status(400).send({ message: "No films found" });
