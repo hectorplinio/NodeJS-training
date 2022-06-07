@@ -13,14 +13,14 @@
     "moduleResolution": "node",
     "noFallthroughCasesInSwitch": true,
     "noImplicitAny": false,
-    "noImplicitReturns": true,
+    "noImplicitReturns": false,
     "noImplicitThis": false,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "sourceMap": true,
     "strictNullChecks": false,
     "target": "es6",
-    "lib": ["ES6"]
+    "lib": ["ES6"],
   },
   "include": ["src/**/*/*.ts", "src/index.ts"]
 }

@@ -13,8 +13,12 @@ const FilmORM = (): FilmRepository => {
             }
         },
         getFilmById: async (id: string) => {
-            const film = await filmModel.findById(id);
-            return film;
+            try {
+                const film = await filmModel.findById(id);
+                return film;
+            } catch (error) {
+                return error.message;
+            }
         },
         createFilm: async (film: Film) => {
             try {
@@ -25,14 +29,26 @@ const FilmORM = (): FilmRepository => {
             }
         },
         updateFilm: async (id: string, film: Film) => {
-            const updatedFilm = await filmModel.findByIdAndUpdate(id, film, {
-                new: true,
-            });
-            return updatedFilm;
+            try {
+                const updatedFilm = await filmModel.findByIdAndUpdate(
+                    id,
+                    film,
+                    {
+                        new: true,
+                    }
+                );
+                return updatedFilm;
+            } catch (error) {
+                return error.message;
+            }
         },
         deleteFilm: async (id: string) => {
-            const deletedFilm = await filmModel.findByIdAndDelete(id);
-            return deletedFilm;
+            try {
+                const deletedFilm = await filmModel.findByIdAndDelete(id);
+                return deletedFilm;
+            } catch (error) {
+                return error.message;
+            }
         },
     };
 };
