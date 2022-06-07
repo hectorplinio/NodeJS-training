@@ -3,7 +3,7 @@ import { Film } from "../../core/domain/film";
 import FilmRepository from "../../core/repositories/film.repository";
 import { idType } from "../../core/domain/id.type";
 
-const FilmORM = (): FilmRepository => {
+const FilmAdapter = (): FilmRepository => {
     return {
         getAllFilms: async () => {
             try {
@@ -37,4 +37,4 @@ const FilmORM = (): FilmRepository => {
         },
     };
 };
-export default FilmORM;
+export default FilmAdapter;
