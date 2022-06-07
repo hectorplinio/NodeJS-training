@@ -5,16 +5,24 @@ import FilmRepository from "../../core/repositories/film.repository";
 const FilmORM = (): FilmRepository => {
     return {
         getAllFilms: async () => {
-            const films = await filmModel.find();
-            return films;
+            try {
+                const films = await filmModel.find();
+                return films;
+            } catch (error) {
+                return error.message;
+            }
         },
         getFilmById: async (id: string) => {
             const film = await filmModel.findById(id);
             return film;
         },
         createFilm: async (film: Film) => {
-            const newFilm = await filmModel.create(film);
-            return newFilm;
+            try {
+                const newFilm = await filmModel.create(film);
+                return newFilm;
+            } catch (error) {
+                return error.message;
+            }
         },
         updateFilm: async (id: string, film: Film) => {
             const updatedFilm = await filmModel.findByIdAndUpdate(id, film, {
