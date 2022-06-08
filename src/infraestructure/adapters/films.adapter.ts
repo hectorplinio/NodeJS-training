@@ -2,6 +2,7 @@ import filmModel from "../models/film.model";
 import { Film } from "../../core/domain/film";
 import FilmRepository from "../../core/repositories/film.repository";
 import { idType } from "../../core/domain/id.type";
+import CustomError from "../../core/errors/custom-error";
 
 const FilmAdapter = (): FilmRepository => {
     return {
@@ -10,7 +11,7 @@ const FilmAdapter = (): FilmRepository => {
                 const films = await filmModel.find();
                 return films;
             } catch (error) {
-                return error.message;
+                throw new CustomError(error);
             }
         },
         getFilmById: async (id: idType): Promise<Film> => {
@@ -18,7 +19,7 @@ const FilmAdapter = (): FilmRepository => {
                 const film = await filmModel.findById(id);
                 return film;
             } catch (error) {
-                return error.message;
+                throw new CustomError(error);
             }
         },
         createFilm: async (film: Film): Promise<Film> => {
@@ -26,7 +27,7 @@ const FilmAdapter = (): FilmRepository => {
                 const newFilm = await filmModel.create(film);
                 return newFilm;
             } catch (error) {
-                return error.message;
+                throw new CustomError(error);
             }
         },
         updateFilm: async (id: idType, film: Film): Promise<Film> => {
@@ -40,7 +41,7 @@ const FilmAdapter = (): FilmRepository => {
                 );
                 return updatedFilm;
             } catch (error) {
-                return error.message;
+                throw new CustomError(error);
             }
         },
         deleteFilm: async (id: idType): Promise<Film> => {
@@ -48,7 +49,7 @@ const FilmAdapter = (): FilmRepository => {
                 const deletedFilm = await filmModel.findByIdAndDelete(id);
                 return deletedFilm;
             } catch (error) {
-                return error.message;
+                throw new CustomError(error);
             }
         },
     };

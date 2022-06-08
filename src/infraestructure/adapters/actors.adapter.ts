@@ -2,6 +2,7 @@ import { Actor } from "../../core/domain/actor";
 import { idType } from "../../core/domain/id.type";
 import ActorRepository from "../../core/repositories/actor.repository";
 import actorModel from "../models/actor.model";
+import CustomError from "../../core/errors/custom-error";
 
 const ActorAdapter = (): ActorRepository => {
     return {
@@ -10,7 +11,7 @@ const ActorAdapter = (): ActorRepository => {
                 const actors = await actorModel.find();
                 return actors;
             } catch (error) {
-                return error.message;
+                throw new CustomError(error);
             }
         },
         getActorById: async (id: idType): Promise<Actor> => {
@@ -18,7 +19,7 @@ const ActorAdapter = (): ActorRepository => {
                 const actor = await actorModel.findById(id);
                 return actor;
             } catch (error) {
-                return error.message;
+                throw new CustomError(error);
             }
         },
         createActor: async (actor: Actor): Promise<Actor> => {
@@ -26,7 +27,7 @@ const ActorAdapter = (): ActorRepository => {
                 const newActor = await actorModel.create(actor);
                 return newActor;
             } catch (error) {
-                return error.message;
+                throw new CustomError(error);
             }
         },
         updateActor: async (id: idType, actor: Actor): Promise<Actor> => {
@@ -40,7 +41,7 @@ const ActorAdapter = (): ActorRepository => {
                 );
                 return updatedActor;
             } catch (error) {
-                return error.message;
+                throw new CustomError(error);
             }
         },
         deleteActor: async (id: idType): Promise<Actor> => {
@@ -48,7 +49,7 @@ const ActorAdapter = (): ActorRepository => {
                 const deletedActor = await actorModel.findByIdAndDelete(id);
                 return deletedActor;
             } catch (error) {
-                return error.message;
+                throw new CustomError(error);
             }
         },
     };

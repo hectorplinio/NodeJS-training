@@ -6,7 +6,6 @@ import { createActor } from "../../../../core/application/actors/index";
 const createActorController = async (req, res) => {
     const actor: Actor = trimFields(req.body, arrayExceptions);
     const newActor = await createActor(actor);
-    if (!newActor.name) return res.status(400).send({ message: newActor });
     return res.status(200).send({ actor: newActor });
 };
 export default createActorController;

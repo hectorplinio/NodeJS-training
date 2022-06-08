@@ -8,7 +8,10 @@ export const controllerWrapper = (
             await controller(req, res);
         } catch (error: unknown) {
             console.log(error);
-            next(error);
+            if (error instanceof Error) {
+                return res.status(400).send({ message: error.message });
+            }
+            return next(error);
         }
     };
     return run;
