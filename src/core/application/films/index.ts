@@ -1,4 +1,4 @@
-import FilmAdapter from "../../../infraestructure/adapters/films.repository";
+import FilmAdapter from "../../../infraestructure/adapters/films.adapter";
 import { Film } from "../../domain/film";
 import getAllFilmsUseCase from "./getAllFilms.usecase";
 import CreateFilmUseCase from "./createFilm.usecase";
