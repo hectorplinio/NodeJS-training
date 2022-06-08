@@ -7,11 +7,11 @@ import deleteFilmController from "../controllers/film/deleteFilm.controller";
 import updateFilmController from "../controllers/film/updateFilm.controller";
 const router: Router = express.Router();
 const filmRouter = (): Router => {
-    router.get("/film", controllerWrapper(getAllFilmsController));
-    router.post("/film", controllerWrapper(createFilmController));
-    router.get("/film/?id", controllerWrapper(getFilmByIdController));
-    router.delete("/film", controllerWrapper(deleteFilmController));
-    router.put("/film", controllerWrapper(updateFilmController));
+    router.get("/", controllerWrapper(getAllFilmsController));
+    router.post("/", controllerWrapper(createFilmController));
+    router.get("/?id", controllerWrapper(getFilmByIdController));
+    router.delete("/", controllerWrapper(deleteFilmController));
+    router.put("/", controllerWrapper(updateFilmController));
     return router;
 };
 export default filmRouter;

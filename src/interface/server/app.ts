@@ -2,6 +2,7 @@ import express, { Application } from "express";
 import cors from "cors";
 import helmet from "helmet";
 import filmRouter from "./routes/film.routes";
+import actorRouter from "./routes/actor.routes";
 export const createServer = (port: number) => {
     const app: Application = express();
     app.use(express.json());
@@ -9,7 +10,8 @@ export const createServer = (port: number) => {
     app.use(helmet());
     app.use(express.urlencoded({ extended: true }));
 
-    app.use("/", filmRouter());
+    app.use("/film", filmRouter());
+    app.use("/actor", actorRouter());
     return {
         app: app,
         run: () => runServer(app, port),
