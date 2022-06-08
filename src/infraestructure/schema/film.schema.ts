@@ -40,6 +40,7 @@ const filmSchema = new Schema<Film>({
     },
     createdAt: {
         type: Date,
+        required: true,
         default: Date.now,
     },
     actors: {
